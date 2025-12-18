@@ -1,9 +1,9 @@
 /* App Container */
 .app-container {
-  width: 100%;
+  width: 95%;
   max-width: 800px;
-  /* Increased for single line title */
-  padding: 2rem;
+  padding: 1rem;
+  margin: 0 auto;
   animation: fadeIn 0.8s ease-out;
 }
 
@@ -38,14 +38,12 @@
 
 /* Typography */
 .title {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 800;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   color: #1e293b;
-  /* Solid slate 800 */
   letter-spacing: -0.03em;
-  white-space: nowrap;
-  /* Prevent wrapping */
+  line-height: 1.2;
 }
 
 /* Upload Section */
@@ -434,4 +432,65 @@
 .remove-btn:hover {
   background: #fef2f2;
   color: #ef4444;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .glass-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .title {
+    margin-bottom: 1.5rem;
+  }
+
+  .dropzone {
+    padding: 2rem 1rem;
+  }
+
+  .result-role {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .ats-score-container {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .skills-tags {
+    gap: 0.4rem;
+  }
+
+  .skill-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .main-text {
+    font-size: 1rem;
+  }
+
+  .upload-btn {
+    width: 100%;
+  }
+
+  .analyze-new-btn {
+    width: 100%;
+  }
 }

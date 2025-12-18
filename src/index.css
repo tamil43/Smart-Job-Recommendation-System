@@ -22,9 +22,7 @@
 body {
   font-family: var(--font-sans);
   background-color: #f1f5f9;
-  /* Slate 100 - soft off-white */
-  background-image:
-    linear-gradient(to bottom right, #f1f5f9 0%, #e2e8f0 100%);
+  background-image: linear-gradient(to bottom right, #f1f5f9 0%, #e2e8f0 100%);
   background-attachment: fixed;
   color: var(--color-text-main);
   line-height: 1.5;
@@ -32,7 +30,8 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 2rem 0;
 }
 
 button {

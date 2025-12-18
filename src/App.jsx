@@ -14,42 +14,27 @@ function App() {
       setFile(uploadedFile);
       setStatus('analyzing');
 
-      const formData = new FormData();
-      formData.append('resume', uploadedFile);
+      // Simulate analysis delay
+      setTimeout(() => {
+        const mockData = {
+          role: 'Full Stack Developer',
+          atsScore: 88,
+          matchScore: 92,
+          marketDemand: 'Very High',
+          skills: ['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript', 'TypeScript', 'AWS', 'Docker'],
+          salary_range: '$120k - $160k'
+        };
 
-      try {
-        const response = await fetch('http://localhost:5000/api/analyze', {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (!response.ok) {
-          let errMsg = 'Analysis failed';
-          try {
-            const errData = await response.json();
-            errMsg = errData.error || errMsg;
-          } catch (e) { /* ignore json parse error */ }
-          throw new Error(errMsg);
-        }
-
-        const data = await response.json();
-
-        // Ensure minimum duration of 2s for the animation to look good
-        setTimeout(() => {
-          setAnalysis(data);
-          setStatus('result');
-        }, 1000);
-
-      } catch (error) {
-        console.error("Error analyzing:", error);
-        setStatus('idle');
-        alert(`Analysis failed: ${error.message}`);
-      }
+        setAnalysis(mockData);
+        setStatus('result');
+      }, 2000);
     }
   }, []);
 
   const resetAnalysis = () => {
-    window.location.reload();
+    setFile(null);
+    setAnalysis(null);
+    setStatus('idle');
   };
 
   const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
